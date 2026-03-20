@@ -5,7 +5,7 @@ from collections import deque
 visited = [[0] * m for _ in range(n)]
 # Please write your code here.
 def checkLine(a,b):
-    if 0 <= a < n and 0<= b < n:
+    if 0 <= a < n and 0<= b < m:
         return True
     else:
         return False
@@ -28,10 +28,10 @@ def bfs():
             if checkLine(nx, ny) and visited[nx][ny] == False:
                 ## 뱀없음
                 if a[nx][ny] == 1:
-                    # print(nx,ny,a[nx][ny])
+                    
                     visited[nx][ny] = True
                     q.append((nx, ny))
-                    # print(q)
+                    
     return False
 
 if bfs():
