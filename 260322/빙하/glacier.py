@@ -33,7 +33,7 @@ def 빙하갯수탐색():
 
 dir = [(-1, 0), (1, 0), (0, 1), (0, -1)]
 # 빙하갯수 = 빙하갯수탐색()
-녹을빙하= []
+녹을빙하= set()
 t = 0
 
 def 업데이트():
@@ -41,7 +41,7 @@ def 업데이트():
     for 빙하 in 녹을빙하:
         a[빙하[0]][빙하[1]] = 0
     
-    녹을빙하 = []
+    녹을빙하 = set()
 
 ## 물인 지역부터 시작해서 탐색 
 ##  주위 지형이 1이면 녹을빙하에 넣어두고
@@ -51,7 +51,7 @@ def 업데이트():
 def 고인물탐색(x,y, visited):
     q = deque()
     q.append((x,y))
-    이번탐색에서녹을빙하 = []
+    이번탐색에서녹을빙하 = set()
     visited[x][y] = 1
     Flag = False
     while q:
@@ -71,13 +71,13 @@ def 고인물탐색(x,y, visited):
                     visited[nx][ny] = 1
             
 
-                if (nx,ny) not in 이번탐색에서녹을빙하 and a[nx][ny] == 1:
-                    이번탐색에서녹을빙하.append((nx,ny))
+                if a[nx][ny] == 1:
+                    이번탐색에서녹을빙하.add((nx,ny))
 
     if Flag:
         return 이번탐색에서녹을빙하
     else:
-        return []
+        return set()
 
     # return True
 
@@ -85,6 +85,7 @@ def 고인물탐색(x,y, visited):
 # Flag = False
 빙하갯수 = 빙하갯수탐색()
 while True:
+    # global 녹을빙하
     t += 1
     visited = [[0]* m for _ in range(n)]
     for i in range(n):
@@ -92,7 +93,7 @@ while True:
             if a[i][j] == 0 and visited[i][j] == 0:
                 
                 탐색결과 = 고인물탐색(i,j, visited)
-                녹을빙하 = list(set(녹을빙하 + 탐색결과))
+                녹을빙하 =  녹을빙하|탐색결과
                 ## 리스트 끼리 합칠때 중복제거 하는 방법
 
     업데이트()
