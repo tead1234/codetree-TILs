@@ -19,7 +19,7 @@ def change(i):
 
 ind=  0
 ans = 0
-for i in range(N):
+for i in range(1, N):
     # print(a[i])
 
     if (i-1) >=0 and a[i-1] == 0:
