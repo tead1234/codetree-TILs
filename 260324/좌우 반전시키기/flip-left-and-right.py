@@ -4,11 +4,10 @@ a = list(map(int,input().split()))
 ### 중간에 리스트가 바뀌는 경우엔 어떻게 대처?
 # Please write your code here.
 def change(i):
-    if (i - 1) >= 0:
-        if a[i-1] ==0:
-             a[i-1] = 1
-        else:
-            a[i-1] =0
+    # if (i - 1) >= 0:
+        # if a[i-1] ==0:
+    a[i-1] = 1
+
     if (i + 1) < N:
         if a[i+1] ==0:
              a[i+1] = 1
@@ -23,15 +22,15 @@ ans = 0
 for i in range(N):
     # print(a[i])
 
-    if a[i] == 0:
+    if (i-1) >=0 and a[i-1] == 0:
         # print("진입", i)
         change(i)
         ans += 1
-# for i in a:
-#     if i == 0:
-#         ind = 1
-
-if a[N-1] == 0:
+for i in a:
+    if i == 0:
+        ind = 1
+# print(a)
+if ind == 1:
     print(-1)
 else:
     print(ans)
