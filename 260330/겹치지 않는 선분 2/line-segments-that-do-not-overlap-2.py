@@ -18,18 +18,23 @@ for i in range(n):
         c_x, c_y = compare_line
     ### 겹치는지 아닌지 판단하는 로직이 더필요
     ### 무조건 겹치는경우
-        if 겹치는리스트[i] ==1 or 겹치는리스트[j]==1:
-            flag = True
-            break
+        # if 겹치는리스트[i] ==1 or 겹치는리스트[j]==1:
+        #     flag = True
+        #     break
         if t_y > c_y: 
-            flag = True
+            # flag = True
             겹치는리스트[i] = 1
             겹치는리스트[j] = 1
             ### 타겟을 제외한 나머지 루프에서 제외
-            break
-    if not flag:
-        ## 겹치는거 없음
+            # break
+
+for i in 겹치는리스트:
+    if i == 0:
         ans += 1
-            # continue
+
+# if not flag:
+#         ## 겹치는거 없음
+#         ans += 1
+#             # continue
         
 print(ans)
