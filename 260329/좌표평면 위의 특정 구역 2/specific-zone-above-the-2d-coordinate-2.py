@@ -21,7 +21,7 @@ for p in range(n):
     min_x = min(new_x_list)
     min_y = min(new_y_list)
 
-    if ans > (max_x - min_x) * (max_y * min_y):
+    if ans > (max_x - min_x) * (max_y - min_y):
         ans = (max_x - min_x) * (max_y - min_y)
         # print(max_x, min_x,max_y,min_y)
 print(ans)
