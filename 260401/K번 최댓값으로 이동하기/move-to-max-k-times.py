@@ -1,6 +1,8 @@
 n, k = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 r, c = map(int, input().split())
+nr = r -1
+nc = c- 1
 
 # Please write your code here.
 import heapq
@@ -26,7 +28,7 @@ def find_perfect_position(r,c):
             n_x = ways[i][0] + cur_x
             n_y = ways[i][1] + cur_y
             if vaild(n_x, n_y) and visited[n_x][n_y] == 0:
-                if grid[n_x][n_y] < grid[cur_x][cur_y]:
+                if grid[n_x][n_y] < grid[r][c]:
                     possible.append((n_x, n_y))
                     visited[n_x][n_y] = 1
                     heapq.heappush(q,(-grid[n_x][n_y], n_x, n_y))
@@ -38,8 +40,10 @@ def find_perfect_position(r,c):
     else:
         return r,c
 for _ in range(k):
-    n_x, n_y = find_perfect_position(r-1,c-1)
-    r = n_x
-    c = n_y
+    ## 초기값은 한번 바꿔줘야함
+    n_x, n_y = find_perfect_position(r-1,c -1)
+    r = n_x + 1
+    c = n_y + 1
+    # print(r,c)
 
-print(r+1,c+1)
+print(r,c)
