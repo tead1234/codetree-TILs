@@ -1,5 +1,5 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+arr = [input() for _ in range(n)]
 
 # Please write your code here.
 ### 먼저 앞자리 수를 비교 
@@ -16,9 +16,6 @@ def compare(x,y):
     return 0
 
 arr.sort(key = cmp_to_key(compare), reverse = True)
-answer = ""
-# print(arr)
-for a in arr:
-    answer += str(a)
+answer = "".join(arr)
 print(answer)
 
